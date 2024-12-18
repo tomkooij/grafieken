@@ -1,0 +1,64 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{cmbright}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,circuits.ee.IEC,intersections,positioning}
+\graphicspath{{figures/}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\usepackage[detect-none, list-final-separator={ en }, per-mode=symbol,
+            retain-explicit-plus, output-decimal-marker={,},
+            exponent-product={\cdot}, range-phrase={ tot }]{siunitx}
+\usepackage[font={small,sf},labelfont={bf},labelsep=endash]{caption}
+\usepackage{booktabs}
+\usepackage[left]{eurosym}
+\usepackage{amsmath}
+\usepackage{MnSymbol} % e.g. for \hateq
+\usepackage{enumerate}
+\usepackage{esvect}
+\usepackage{relsize}
+\usepackage{multicol}
+\usepackage[version=3]{mhchem}
+\usepackage{xfrac}
+\usepackage{cancel}
+\usepackage{xr}
+
+\newcommand{\figref}[1]{Figuur \ref{#1}}
+\newcommand{\tabref}[1]{Tabel \ref{#1}}
+\renewcommand{\eqref}[1]{Vergelijking \ref{#1}}
+\newcommand{\bijvraag}[1]{Bij vraag \ref{#1}.}
+\newcommand{\qref}[1]{Vraag \ref{#1}}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Antwoord:}\enspace}
+\renewcommand{\EUR}[1]{\euro\,\num{#1}}
+\renewcommand{\to}{\ensuremath{\ \rightarrow\ }}
+
+\DeclareSIUnit\parsec{pc}
+
+\setlength{\answerskip}{-1em}
+\setlength\linefillthickness{0.3pt}
+
+\newcommand{\makelines}[1]{\ifprintanswers\else\fillwithlines{#1\linefillheight}\fi}
+
+\newenvironment{sansmath}{}{}
+
+
+\pagestyle{headandfoot}
+
+\ifdefined\showanswers
+  \printanswers
+\else
+  \noprintanswers
+\fi
+
+\ifprintanswers
+\header{\bfseries\large\exam}{\bfseries\large\version}{\numpoints\ punten}
+\else
+\header{\bfseries\large\exam}{}{\bfseries\large\version}
+%\pointformat{}
+\fi
+\footer{}{}{\bfseries\iflastpage{Einde $\blacksquare$}{Lees verder $\filledmedtriangleright$}}
+
+\pointsinmargin
